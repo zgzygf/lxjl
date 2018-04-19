@@ -1,0 +1,369 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+body{
+	font-family:"Microsoft yahei" ,Arial;
+	font-size:14px;
+	background-color:#fff;
+}
+ul{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.container{
+	width:1100px;
+	margin:0 auto;
+}
+.container:before{
+	content:" ";
+	display:table;
+}
+.container:after{
+	content:" ";
+	display:table;
+	clear:both;
+}
+/***任务：创建index02.html/basic02.css为每个布局框设置高度/边框/背景***/
+header,section{
+	border:1px solid #aaa;	
+}
+header{
+	height:50px;
+	background-color:#fff;
+}
+/**导航栏**/
+.navbar>div>p{
+	float:left;
+	line-height:50px;
+}
+.navbar>div>ul{
+	float:right;
+	line-height:50px;
+}
+.navbar>div>ul>li{
+	float:left;
+	margin-left:32px;
+}
+.navbar>div>ul>li>a{
+	display:inline-block;
+	height:46px;
+	color:#666;
+}
+.navbar>div>ul>li>a.download{
+	width:86px;
+	height:26px;
+	margin-top:10px;
+	background:url(images/iconlist_2.png) no-repeat -1655px -510px;
+}
+.navbar>div>ul>li>a.expect{
+	width:86px;
+	height:26px;
+	margin-top:10px;
+	background:url(images/iconlist_2.png) no-repeat -1655px -537px;
+}
+.navbar>div>ul>li>a:hover{
+	border-bottom:2px solid #e4393c;
+}
+/**************banner********************/
+.banner,.reminder,.call,.smart{
+	height:700px;
+}
+.banner{
+	background:#fff url(images/bg_1.jpg) no-repeat center;
+}
+.banner h3{
+	width:452px;
+	height:53px;
+	margin:135px auto 0;
+	background:url(images/iconlist_1.png) no-repeat -870px 0;
+}
+.banner p{
+	width:412px;
+	height:20px;
+	margin:30px auto 0;
+	background:url(images/iconlist_1.png) no-repeat -892px -80px;
+}
+.banner .pielist{
+	position:relative;
+	margin-left:160px;
+	margin-top:20px;
+}
+.banner .pie{
+	position:absolute;
+}
+.banner .pie i{
+	display:block;
+	width:173px;
+	height:173px;
+	background:url(images/iconlist_1.png) no-repeat;
+}
+.banner .pie b{
+	display:block;
+	width:173px;
+	height:20px;
+	margin-top:-5px;
+	background:url(images/iconlist_1.png) no-repeat -869px -130px;
+}
+.banner .p1{
+	left:0;
+	animation:p1Anim 1000ms linear;
+}
+@keyframes p1Anim{
+	from{
+		left:-740px;
+	}
+	to{
+		left:0px;
+	}
+}
+.banner .p2{
+	left:153px;
+	animation:p2Anim 1206ms linear;
+	}
+@keyframes p2Anim{
+	from{
+		left:-740px;
+	}
+	to{
+		left:153px;
+	}
+}
+.banner .p3{
+	left:306px;
+	animation:p3Anim 1412ms linear;
+	}
+@keyframes p3Anim{
+	from{
+		left:-740px;
+	}
+	to{
+		left:306px;
+	}
+}
+.banner .p4{
+	left:459px;
+	animation:p4Anim 1618ms linear;
+	}
+@keyframes p4Anim{
+	from{
+		left:-740px;
+	}
+	to{
+		left:459px;
+	}
+}
+.banner .p5{
+	left:612px;
+	animation:p5Anim 1824ms linear;
+	}
+@keyframes p5Anim{
+	from{
+		left:-740px;
+	}
+	to{
+		left:612px;
+	}
+}
+
+.banner .p1 i{
+	background-position:0 0;
+}
+.banner .p2 i{
+	background-position:-174px 0;
+}
+.banner .p3 i{
+	background-position:-348px 0;
+}
+.banner .p4 i{
+	background-position:-522px 0;
+}
+.banner .p5 i{
+	background-position:-696px 0;
+	animation:p5Rotate 1824ms linear;
+}
+@keyframes p5Rotate{
+	from{
+		transform:rotate(0deg);
+	}
+	to{
+		transform:rotate(720deg);
+	}
+}
+/****************reminder***********************/
+.reminder{
+	background:#fff;
+}
+.reminder h2{
+	color:#636363;
+	text-align:center;
+	margin-top:85px;
+}
+.reminder p{
+	width:903px;
+	height:53px;
+	margin:0px auto;
+	margin-top:10px;
+	background:url(images/iconlist_2.png) no-repeat -1444px -590px;
+}
+.reminder .rem_list1{
+	position:relative;
+	margin-top:20px;
+}
+.reminder .rem_list2{
+	position:relative;
+}
+.reminder ul li{
+	position:absolute;
+}
+.reminder ul li a{
+	display:block;
+	width:148px;
+	height:148px;
+	background:url(images/iconlist_2.png) no-repeat ;
+}
+.reminder .rem_list1 .list11 a{
+	background-position:-1656px 0;
+}
+.reminder .rem_list1 .list11{
+	left:206;
+}
+.reminder .rem_list1 .list12 a{
+	background-position:-1819px 0;
+}
+.reminder .rem_list1 .list12{
+	left:391px;
+}
+.reminder .rem_list1 .list13 a{
+	background-position:-1982px 0;
+}
+.reminder .rem_list1 .list13{
+	left:572px;
+}
+.reminder .rem_list1 .list14 a{
+	background-position:-2144px 0;
+}
+.reminder .rem_list1 .list14{
+	left:756px;
+}
+.reminder .rem_list2 .list21 a{
+	background-position:-1748px -150px;
+}
+.reminder .rem_list2 .list21{
+	left:288px;
+	top:158px;
+}
+.reminder .rem_list2 .list22 a{
+	background-position:-1910px -150px;
+}
+.reminder .rem_list2 .list22{
+	left:494px;
+	top:158px;
+}
+.reminder .rem_list2 .list23 a{
+	background-position:-2073px -150px;
+}
+.reminder .rem_list2 .list23{
+	left:679px;
+	top:158px;
+}
+/*****************call***********************/
+.call{
+	background:#fff url(images/bg_2.jpg) no-repeat center;
+}
+.call .desc{
+	width:520px;
+	height:525px;
+	background:url(images/iconlist_2.png) no-repeat 0 0;
+	margin-top:100px;
+	float:left;
+	transition:width 0.3s linear;
+}
+.call .desc:hover{width:700px;}
+.call .phone{
+	width:250px;
+	height:530px;
+	float:left;
+	background:url(images/iconlist_2.png) no-repeat -570px 5px;
+	margin-top:100px;
+	margin-left:60px;
+	transition:all 0.3s linear;
+}
+.call .phone:hover{
+	transform:rotate(30deg);
+}
+/****************************************/
+.smart{
+	height:740px;
+	background:#fff url(images/bg_3.jpg) no-repeat center;
+}
+/****************************************/
+.location{
+	height:700px;
+	background:#fff url(images/bg_4.jpg) no-repeat center;
+}
+/*****************icon_list***********************/
+.icon_list{
+	height:700px;
+	background:#fff;
+}
+.icon_list .icon{
+	margin-top:205px;
+}
+.icon_list ul li{
+	float:left;
+	width:350px;
+}
+.icon_list ul li a{
+	display:block;
+	width:80px;
+	height:80px;
+	float:left;
+	margin-right:10px;
+	margin-left:10px;
+	background:url(images/iconlist_3.png) no-repeat;
+}
+.icon_list ul li a:hover{
+	animation:img 0.3s linear;
+}
+.icon_list .icon .img1{
+	background-position:0 0;
+}
+.icon_list .icon .img2{
+	background-position:-86px 0;
+}
+.icon_list .icon .img3{
+	background-position:-170px 0;
+}
+@keyframes img{
+	from{
+		transform:rotate(0deg);
+	}
+	25%{
+		transform:rotate(30deg);
+	}
+	50%{
+		transform:rotate(0deg);
+	}
+	75%{
+		transform:rotate(-30deg);
+		}
+	to{
+		transform:rotate(0deg);
+	}
+}
+/****************************************/
+.footer{
+	height:275px;
+	background:#545454;
+	
+}

@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+    .a {
+        width: 80px;
+        height: 30px;
+    }
+    .b {
+        width: 80px;
+        height: 30px;
+    }
+    .c {
+        outline-color: #000000;
+        outline-style: dashed;
+        outline-width: thin
+    }
+    #prompt1{
+                  font-size:50%;
+                  color:#FF0000;
+    }
+    #prompt2{
+                  font-size:50%;
+                  color:#FF0000; 
+    }
+    #prompt3{
+                  font-size:50%;
+                  color:#FF0000;
+    }
+    #email{
+                  font-size:50%;
+                  color:#FF0000;
+    }            
+    #phone{
+                  font-size:50%;
+                  color:#FF0000;
+    }
+    #identifying{
+                  font-size:50%;
+                  color:#FF0000;
+    }
+    .code{
+          font-family:Arial,宋体;
+          font-style:italic;
+          color:green;
+          border:0;
+          padding:2px 3px;
+          letter-spacing:3px;
+          font-weight:bolder;
+} 
+    </style>
+    <title>hello页面</title>
+</head>
+
+<body onLoad="createCode();">
+    <center>
+        <form name="form1" action="#" method="post">
+            <input type="hidden" name="xyd" value="999" />
+            <table class="c" cellpadding="20px" align="center" >
+                <tr>
+                    <th colspan="4">
+                        <h1>欢&nbsp;迎&nbsp;注&nbsp;册</h1></th>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>*用&nbsp;户&nbsp;名</b></td>
+                    <td align="left" width="300">
+                        <input name="username" type="text" placeholder="请输入用户名" onblur="checkname()"/>
+                        <span id="prompt1">用户名必须8~20位</span>
+                   </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>*密&nbsp;码</b></td>
+                    <td align="left" width="300">
+                        <input name="password1" type="password" placeholder="请输入密码" onblur="checkpassword1()"/>
+                         <span id="prompt2">密码必须8~20位</span> 
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>*重复密码</b></td>
+                    <td align="left" width="300">
+                        <input name="password2" type="password" placeholder="请再输入一次密码" onblur="checkpassword2()"/>
+                        <span id="prompt3">必须和密码一致</span> 
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>*性&nbsp;别</b></td>
+                    <td align="left" width="300">
+                         男<input checked="value" type="radio" name="sex" / >&nbsp;
+                         女<input type="radio" name="sex" / >
+                         <span id="prompt4"></span>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>地&nbsp;址</b></td>
+                    <td align="left" width="300">
+                        <select id="country"  style="width: 80px" name="country" onchange="checkcountry()">
+                            <option value="-1">请选择</option>
+                        </select>
+                       <select id="province" style="width: 80px" name="province" onchange="checkprovince()"></select>
+                       <select id="market" style="width: 80px" name="market"></select>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>生&nbsp;日</b></td>
+                    <td align="left" width="300">
+                        <input type="date" name="birthday" />
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>电子邮箱</b></td>
+                    <td align="left" width="300">
+                        <input name="email" type="text" placeholder="请输入邮箱地址" onblur="checkemail(this)"/>
+                        <span id="email"></span>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>手机号码</b></td>
+                    <td align="left" width="300">
+                        <input name="phonenum" type="text" placeholder="请输入11位数号码"  onblur="checkphonenum()"/>
+                        <span id="phone"></span>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>兴趣爱好</b></td>
+                    <td align="left" width="300">
+                        <input type="checkbox" name="" value="">看书
+                        <input type="checkbox" name="" value="">娱乐
+                        <input type="checkbox" name="" value="">体育
+                        <input type="checkbox" name="" value="">游戏
+                        <input type="checkbox" name="" value="">旅游
+                        <input type="checkbox" name="" value="">动漫
+                        <input type="checkbox" name="" value="">电影
+                        <input type="checkbox" name="" value="">汽车
+                        <input type="checkbox" name="" value="">养生
+                        <input type="checkbox" name="" value="">美容
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="100"><b>验&nbsp;证&nbsp;码</b></td>
+                    <td align="left" width="300">
+                        <input type="text" id="input1" style="width: 60px" onblur="validate();"/>
+                        <input type="button" id="checkCode" class="code" style="width:60px" onClick="createCode()" />
+                        <span id="identifying">点击图片更换验证码</span>   
+                    </td>
+                </tr>
+                <script language="javascript" type="text/javascript">
+                function checkname() {
+                    if (document.form1.username.value== "") {
+                        document.getElementById("prompt1").innerHTML="用户名不能为空";
+                    }else if (document.form1.username.value.length<8) {
+                        document.getElementById("prompt1").innerHTML="用户名不能小于8";
+                    }else if (document.form1.username.value.length>20) {
+                        document.getElementById("prompt1").innerHTML="用户名不能大于20";
+                    }else{document.getElementById("prompt1").innerHTML="用户名可以使用";}  
+                 }
+                function checkpassword1() {  
+                    if (document.form1.password1.value == "") {
+                        document.getElementById("prompt2").innerHTML="密码不能为空";
+                    }else if (document.form1.password1.value.length<8) {
+                        document.getElementById("prompt2").innerHTML="密码不能小于8";
+                    }else if (document.form1.password1.value.length>20) {
+                        document.getElementById("prompt2").innerHTML="密码不能大于20";
+                    }else{document.getElementById("prompt2").innerHTML="密码可以使用";}
+                }  
+                function checkpassword2() {
+                    if (document.form1.password2.value == "") {
+                        document.getElementById("prompt3").innerHTML="重复密码不能为空";   
+                    }
+                    if (document.form1.password2.value != document.form1.password1.value) {
+                       document.getElementById("prompt3").innerHTML="两次密码不一致";   
+                    }
+                }
+                    var country=["中国","美国","日本"];
+                    var province=[
+                                               ["浙江","江苏","广东"],
+                                               ["华盛顿州","加利福尼亚州","得克萨斯州"],
+                                               ["千叶县","群马县","埼玉县"]
+                    ];
+                    var market=[
+                                               [
+                                                    ["杭州","宁波","舟山"],
+                                                    ["南京","苏州","无锡"],
+                                                    ["广州","深圳","湛江"]
+                                        ],
+                                               [
+                                                    ["西雅图","奥林匹亚","斯波坎"],
+                                                    ["萨克拉门托","洛杉矶","旧金山"],
+                                                    ["休斯敦","圣安东尼奥","达拉斯"]
+                                        ],
+                                               [
+                                                   ["千叶市","佐仓市","香取市"],
+                                                   ["前桥市","高崎市","桐生市"],
+                                                   ["埼玉市","川越市","熊谷市"]
+                                        ]    
+                                 ];
+								 /*
+				     var country=["中国","美国","日本"];
+					  
+								 */
+                             var pIndex = -1;
+                             var cEle = document.getElementById("country");
+                             var pEle = document.getElementById("province");
+                             var mEle = document.getElementById("market");        
+                             for (var i = 0; i < country.length; i++) {         
+                             var op = new Option(country[i], i);        
+                             cEle.options.add(op);       
+                function checkcountry(){          
+                              if (document.form1.country.value == -1) {    
+                                  cityEle.options.length = 0;
+                                  areaEle.options.length = 0;
+                           }
+                                 var val = document.form1.country.value;
+                                 pIndex = document.form1.country.value;
+                                 var cs = province[val];
+                                 var as = market[val][0];
+                                 pEle.options.length = 0;
+                                 mEle.options.length = 0;
+                                 for (var i = 0; i < cs.length; i++) {                                       
+                                       var op = new Option(cs[i], i);
+                                       pEle.options.add(op);
+            }
+                                 for (var i = 0; i < as.length; i++) {
+                                       var op = new Option(as[i], i);
+                                       mEle.options.add(op);
+        }
+}
+               function checkprovince(){
+            var val = document.form1.province.selectedIndex;
+            var as = market[pIndex][val];
+            mEle.options.length = 0;
+            for (var i = 0; i < as.length; i++) {
+                var op = new Option(as[i], i);
+                mEle.options.add(op);
+            }
+        }
+         }             
+                    function checkemail(obj){
+                    var patt1=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/; 
+                    if (patt1.test(document.form1.email.value)){
+                        document.getElementById("email").innerHTML="邮箱地址正确";
+                    }else{document.getElementById("email").innerHTML="邮箱地址不正确";}
+                }  
+                    function checkphonenum(){
+                    if (document.form1.phonenum.value.length!=11) {
+                        document.getElementById("phone").innerHTML="手机号码不正确";
+                    }else{document.getElementById("phone").innerHTML="手机号码正确";}
+                }  
+var code ; 
+function createCode(){ 
+code = new Array();
+var codeLength = 4;
+var checkCode = document.getElementById("checkCode");
+checkCode.value = "";
+var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');         
+for(var i=0;i<codeLength;i++) {
+   var charIndex = Math.floor(Math.random()*36);
+   code +=selectChar[charIndex];
+}
+if(code.length != codeLength){
+   createCode();
+}
+checkCode.value = code;
+}
+function validate(){
+var inputCode = document.getElementById("input1").value.toUpperCase();
+if(inputCode.length <=0) {
+   document.getElementById("identifying").innerHTML="请填写验证码";
+}
+else if(inputCode != code ){
+   document.getElementById("identifying").innerHTML="验证码不正确";
+   createCode();
+}
+else {
+   document.getElementById("identifying").innerHTML="验证码正确";
+}
+}
+</script>    
+                <tr align="center">
+                    <td colspan="2">
+                        <input class="a" type="submit" value="提交" />&nbsp;&nbsp;&nbsp;
+                        <input class="b" type="reset" value="重置" />
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                        <h5>带*的必填，不带*的选填</h5>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

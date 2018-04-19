@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial=1.0" />
+<title>collapsible</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+<div data-role="collapsible">
+	<h3>可折叠区域</h3>
+    <p>我是一段可折叠显示的内容区域。默认状态下我是被折叠起来的的。</p>
+</div>
+
+<!--手风琴案例-->
+<div data-role="collapsible-set">
+	<section data-role="collapsible">
+    	<h3>HTML</h3>
+        <p>HTML是一种超文本标记语言。</p>
+    </section>
+    <section data-role="collapsible">
+    	<h3>javascript</h3>
+    	<p>javascript是一种脚本语言。</p>
+    </section>
+    <section data-role="collapsible">
+      <h3>JAVA</h3>
+      <p>JAVA是一种面向对象的语言。</p>
+    </section>
+</div>
+
+<!---Slider---->
+<div data-role="fieldcontain">
+	<label for="slider">Slider</label>
+	<input type="range" value="2" id="slider" name="slider" class="slider" min="0" max="8">
+</div>
+
+<!--toggle switch-->
+<div data-role="fieldcontain">
+	<label for="slider">请选择</label>
+    <select name="slider" id="slider" data-role="slider">
+    	<option value="on">on</option>
+        <option value="off">off</option>
+    </select>
+</div>
+
+<!--单选按钮 -------data-type="horizontal"水平展示-->
+<div>
+	<fieldset data-role="controlgroup">
+    	<legend>请选择你的爱好</legend>
+        <input type="radio" name="radio-1" id="radio-1">
+        <label for="radio-1">跑步</label>
+        <input type="radio" name="radio-1" id="radio-2">
+        <label for="radio-2">游泳</label>
+        <input type="radio" name="radio-1" id="radio-3">
+        <label for="radio-3">听音乐</label>
+        <input type="radio" name="radio-1" id="radio-4">
+        <label for="radio-4">看书</label>
+    </fieldset>
+</div>
+</body>
+</html>

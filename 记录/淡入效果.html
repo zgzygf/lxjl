@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+    select{
+        width:100%;
+        height: 30px;
+    }
+    p {
+        color: red;
+        display: none;
+    }
+	div.p{
+		 margin:5px 0;
+		 color:red;}
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+    <h2>fadeIn</h2>
+    <p>测试文字淡出效果</p>
+    <p>慕课网,专注分享</p>
+    选择：淡出的隐藏效果
+    </br>
+    </br>
+    <select id="animation">
+        <option value="1">选此选项时，点击按钮可以切换状态，属性(fadeToggle)</option>
+        <option value="2">fadeIn( "slow" )</option>
+        <option value="3">fadeIn( 3000 )</option>
+        <option value="4">fadeTo( 2000,0.2, complete )</option>
+        <option value="5">fadeIn( 1000, "linear" )</option>
+        <option value="6">fadeIn( options )</option>
+    </select>
+    </br></br>
+    <input id="btnFadeIn" type="button" value="执行淡出效果" />
+    <input id="btnHide" type="button" value="点击隐藏" />
+    <script type="text/javascript">
+    //【显示】按钮
+    $("#btnFadeIn").click(function() {
+        var v = $("#animation").val();
+        if (v == "1") {
+            $("p").fadeToggle();//可以切换状态(显示与隐藏)
+        } else if (v == "2") {
+            $("p").fadeIn("slow");
+        } else if (v == "3") {
+            $("p").fadeIn(3000);
+        } else if (v == "4") {
+            $("p").fadeTo(2000,0.2,function() {
+                alert("显示完毕!");
+            });
+        } else if (v == "5") {
+            $("p").fadeIn(1000, "linear");
+        } else if (v == "6") {
+            $("p").fadeIn({
+                duration: 1000
+            });
+        }
+    });
+
+    // 【隐藏】按钮
+    $("#btnHide").click(function() {
+        $("p").hide();
+    });
+    </script>
+    <!--三种状态一起-->
+      <h2>toggle与slideToggle以及fadeToggle的比较</h2>
+    <div class="p">测试文字淡入效果</div>
+    <div class="p">慕课网,专注分享</div>
+    动画切换：
+    <select id="zgz-xl">
+        <option value="1">toggle</option>
+        <option value="2">slideToggle</option>
+        <option value="3">fadeToggle</option>
+    </select>
+    <input id="zgz-qh" type="button" value="点击切换" />
+    <script type="text/javascript">
+
+    $("#zgz-qh").click(function() {
+        var v = $("#zgz-xl").val();
+        if (v == "1") {
+            $(".p").toggle();
+        } else if (v == "2") {
+            $(".p").slideToggle("slow");
+        } else if (v == "3") {
+            $(".p").fadeToggle(1000, "linear");
+        }
+    });
+    </script>
+    <!--增加-->
+    <h2>显示与隐藏的变化比较</h2>
+    <div class="pp">淡入</div>
+    <div class="cp">淡出</div>
+    效果展示
+    <select id="selt">
+       <option value="1">状态1</option>
+       <option value="2">状态2</option>
+       <option value="3">状态3</option>
+    </select>
+    <input id="csbt" type="button" value="点击">
+    <script>
+       $("#csbt").click(function(){
+        var v=$("#selt").val();
+		if(v=="1"){
+		   $(".pp").toggle();
+		}else if(v=="2"){
+	      $(".cp").slideToggle(1000);		
+	 } else if(v=="3"){
+		  $(".cp").fadeToggle(1000);  
+		 }		   
+})
+    </script>
+</body>
+
+</html>

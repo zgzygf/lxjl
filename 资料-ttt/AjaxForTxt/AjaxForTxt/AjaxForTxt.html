@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>示例</title>
+    
+    <style>
+    *{
+		margin:0;
+		padding:0;
+		}
+	.inp{
+		margin:50px 80px;
+		font-size:14px;
+		line-height:25px;
+		text-indent:2em;
+		color:#333;
+		font-family:"宋体";
+		}
+	.inp h2{
+		font:24px;
+		font-weight:bold;
+		text-align:center;
+		margin:10px 0;
+		}
+	.inp h5{
+		font-size:12px;
+		color:#6C6C6C;
+		text-align:center;
+		margin:10px 0;
+		}
+    </style>
+    
+</head>
+<body>
+	<!-- 必须有服务器支持，使用Win7自带的IIS就可以，在这个页面的相同目录下要有一个“1.txt”的文件，里面只包含一个数字。 -->
+	<script type="text/javascript">
+		(function () {
+			var l_Ajax = new XMLHttpRequest();
+
+			l_Ajax.onreadystatechange = function ()
+			{
+				var l_This = this;
+				if (4 != l_This.readyState)
+				{ return; }
+
+				var l_Rs = l_This.status;	//【IE8】在某些状态下该字段不可用！4时可用，所以先检查状态。
+				if (((200 <= l_Rs) && (l_Rs < 300)) || (304 == l_Rs)) // 成功
+				{
+					console.log("Ajax成功！");
+					fOnSucs(l_This.responseText);
+				}
+				else // 失败
+				{
+					console.error("Ajax失败！")
+				}
+			};
+
+			l_Ajax.open("GET", "1.txt", true); // 如果想同步获取，就传false
+			l_Ajax.send(null);
+
+			function fOnSucs(a_RspsText)
+			{	
+				var l_Val = parseFloat(a_RspsText);
+				console.log("值 = " + l_Val);
+
+				if (l_Val < 2)
+				{
+					//【TODO】小于2的代码……
+				}
+				else
+				if (5 < l_Val)
+				{
+					//【TODO】大于5的代码……
+				}
+			}
+		})();
+
+	</script>
+    <div class="inp">
+    	<h2>我们的约定</h2>
+        <h5>与度量11110</h5>
+        <p>
+        山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景
+        山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景
+        山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景
+        山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景
+        山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景山坡上的风景
+        </p>
+    </div>
+    
+    
+    
+    
+</body>
+</html>

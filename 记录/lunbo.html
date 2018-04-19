@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W4C//DTD XHTML 1.0 Transitional//EN" "http://www.w4.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w4.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.bigon {
+ border:1px solid #D1D7DD;
+ color:#FFF;
+ background:#657A8B;
+}
+.bigoff {
+ border:1px solid #D1D7DD;
+ color:#204846;
+ background:#E8ECF0;
+}
+ .cl
+{
+width:100px;
+height:100px;
+background:yellow;
+transition:width 2s, height 2s;
+-moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
+-webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+-o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
+}
+
+.cl:hover
+{
+width:200px;
+height:200px;
+transform:rotate(180deg);
+-moz-transform:rotate(180deg); /* Firefox 4 */
+-webkit-transform:rotate(180deg); /* Safari and Chrome */
+-o-transform:rotate(180deg); /* Opera */
+}
+.fd
+{
+width:100px;
+height:100px;
+background:#F0F;
+}
+.fd:hover
+{
+background:#F0F;
+animation:myfirst 5s;
+-moz-animation:myfirst 5s; /* Firefox */
+-webkit-animation:myfirst 5s; /* Safari and Chrome */
+-o-animation:myfirst 5s; /* Opera */
+}
+@keyframes myfirst
+{
+from {background:blue; width:100px;}
+to {background:#0CF; color:#fff; width:200px;}
+}
+.fd-o
+{
+  width:100px;
+  height:50px;
+  background:#603;
+  animation:float 6s;	
+  position:relative;
+}
+@keyframes float
+{
+ 0%{background:#093; left:0px; top:0px;}
+ 25%{background:#F00; left:200px; top:0px;}
+ 50%{background:#00F; left:200px; top:200px;}
+ 75%{background:#C00; left:0px; top:200px;}
+ 100%{background:#603; left:0px; top:0px;}
+}
+</style>
+</head>
+<body>   
+               <table width="300" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                         <div id="fcbb" style="FILTER:progid:DXImagetransform.Microsoft.Fade (duration=0.5,overlap=1.0);
+                               border:1px solid #D6D6D6; width:300px; height:300px;margin-left:auto; margin-right:auto;">
+                            <div style="display:block"> 
+                              <a href="http://news.qq.com/a/20091122/000574_18.htm" target=_blank>
+                              <img onMouseOver="clearAutobb();" onMouseOut="setAutobb()" src="../images/2.jpg" width="300" height="300" border=0>
+                              </a>
+                            </div>
+                            <div style="display:none">
+                               <a href="http://news.qq.com/a/20091122/001254.htm" target=_blank>
+                               <img onMouseOver="clearAutobb();" onMouseOut="setAutobb()" src="../images/1.jpg" width="300" height=  "300" border=0>                               </a>
+                            </div>
+                            <div style="display:none"> 
+                               <a href="http://news.qq.com/a/20091122/000574_15.htm" target=_blank>
+                                 <img onMouseOver="clearAutobb();" onMouseOut="setAutobb()" src="../images/3.jpg" width="300" height="300" border=0>
+                               </a>
+                            </div>
+                            <div style="display:none" align="center"> 
+                              <a href="http://news.qq.com/a/20091122/000574_15.htm" target=_blank>
+                                <img onMouseOver="clearAutobb();"align="center" onMouseOut="setAutobb()" 
+                                  src="../images/loading.gif" width="300" height="300" border="0">
+                              </a>
+                            </div>
+                        </div>
+                      </td>
+                   </tr>
+                   <tr>
+                      <td>
+                         <table cellSpacing="0" cellPadding="0" width="294" align="center" border="0">
+                           <tr>
+                              <td onMouseOver="clearAutobb();" onMouseOut="setAutobb()" align="center" width="222">
+                                 <div id="conbb">
+                                    <div style="display:block"><a class="bla" href="" target=_blank></a></div>
+                                    <div style="display:none"><a class="bla" href="" target=_blank></a></div>
+                                    <div style="display:none"><a class="bla" href="" target=_blank></a></div>
+                                    <div style="display:none"><a class="bla" href="" target=_blank></a></div>
+                                  </div>
+                               </td>
+                               <td width="72">
+                                  <table id="numbb" cellSpacing="4" cellPadding="0" align="right" border="0">
+                                      <tr>
+                                         <td class="bigon" style="cursor:pointer"onclick="Meabb(0);" 
+                                             onMouseOver="clearAutobb();" onMouseOut="setAutobb()" align="center" width="15" height="18">1
+                                         </td>
+                                         <td class="bigoff" style="cursor:pointer"onclick="Meabb(1);" onMouseOver="clearAutobb();" 
+                                            onMouseOut="setAutobb()" align="center" width="15">2
+                                         </td>
+                                         <td class="bigoff" style="cursor:pointer"onclick="Meabb(2);" onMouseOver="clearAutobb();"
+                                            onMouseOut="setAutobb()" align="center" width="15">3
+                                         </td>
+                                         <td class="bigoff" style="cursor:pointer"onclick="Meabb(3);" onMouseOver="clearAutobb();" 
+                                           onMouseOut="setAutobb()" align="center" width="15">4
+                                         </td>
+                                    </tr>
+                              </table>
+                            </td>
+                         </tr>
+                        </table>
+                 	
+              <script> 
+					var nbb=0;
+					var showNumbb = document.getElementById("numbb");
+					function Meabb(value){
+					 nbb=value;
+					 setBgbb(value);
+					 playsbb(value);
+					 consbb(value);
+					 }
+					function setBgbb(value){
+					 for(var i=0;i<4;i++)      
+					   if(value==i){
+					  showNumbb.getElementsByTagName("td")[i].className='bigon';
+					  } 
+					 else{ 
+					  showNumbb.getElementsByTagName("td")[i].className='bigoff';
+					  }  
+					 } 
+					function playsbb(value){
+					 try
+					 {
+					  with (fcbb)//这个是图片部分的div的id
+					  {
+					   filters[0].Apply();
+					   for(i=0;i<4;i++)i==value?children[i].style.display="block":children[i].style.display="none";
+					   filters[0].play(); 
+					  }
+					 }
+					 catch(e)
+					 {
+					  var divlist = document.getElementById("fcbb").getElementsByTagName("div");
+					  for(i=0;i<4;i++)
+					  {
+					   i==value?divlist[i].style.display="block":divlist[i].style.display="none";
+					  }
+					 }
+					}
+					function consbb(value){
+					 try
+					 {
+					  with (conbb)//conbb这个是图片标题description div的id
+					  {
+						for(i=0;i<4;i++)i==value?children[i].style.display="block":children[i].style.display="none";//三目运算   
+					  }
+					 }
+					 catch(e)
+					 {
+					  var divlist = document.getElementById("conbb").getElementsByTagName("div");
+					  for(i=0;i<4;i++)
+					  {
+					   i==value?divlist[i].style.display="block":divlist[i].style.display="none";
+					  }  
+					 }
+					}
+					function clearAutobb(){clearInterval(autoStartbb)}
+					function setAutobb(){autoStartbb=setInterval("autobb()",1000)}
+					function autobb(){
+					 nbb++;
+					 if(nbb>4)nbb=0;
+					 Meabb(nbb);
+					}
+					setAutobb();
+					function consbb(value){
+					  try 
+					  {
+						  with(conbb)
+						  {
+							   for(i=0;i<4;i++)i==value?children[i].style.display="block":children[i].style.display="none";
+							  }
+						  }
+						  catch(e)
+						  {
+							  var divlist= document.getElementById("conbb").getElementsByTagName("div");
+							  for(i=0;i<4;i++)
+							  {
+								  i=value?divlist[i].style.display="block":divlist[i].style.display="none";
+								 }
+							  }
+					}
+			    </script>
+                       </td>
+				 </tr>
+			  </table>	
+        <!--新增 start-->
+  <div style="width:200px; height:80px; border:1px #ddd solid; background:#C06; box-shadow:10px 25px 3px 5px #009"></div>
+  <!--对象选择器 {box-shadow:投影方式 X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色}-->
+  <div style="text-shadow:2px 2px #0F6; margin-top:50px;">你好啊，no，我确实很好</div>
+  <div style="border:15px #000 solid; width:300px; padding:10px 20px">sdgsdag</div>
+  <div style="width:150px; height:150px; background:red; transform:rotate(60deg)">asdfsd</div>
+  <!--transform:scale(2,0.5) X轴变成原来的两倍，Y轴变为0.5倍-->
+  <div style="width:150px; height:60px; border:1px red solid; background:#603; transform:rotateX(180deg);color:#fff;">我们在孤单的旅行</div>
+  <div class="cl">请把鼠标指针放到黄色的 div 元素上，来查看过渡效果。</div>
+  <div class="fd">鼠标移入变色</div>
+  <div class="fd-o">窗口打开动画</div>
+  <div style="-moz-column-count:4; -moz-column-gap:30px; -moz-column-rule:2px dotted #F0F; padding:5px 20px;">古有太极生两仪，两仪生四象，四象生八卦之说‘太极’是阴阳未分，天地浑沌时期。‘两仪’就是天和地，如‘八卦’图中的阴阳鱼，白色的为阳，黑色的为阴，古人将阴阳鱼比作太阳、月亮、地球，太阳为阳，月亮为阴，地球为阴，阴阳相互环抱，表示阴阳交合，古人以四象来象征四方，象征一年的春、夏、秋、冬四季，四象生八卦，实际上是阴阳相重，阴阳相合而成。八卦分为“天体运行八卦图”和“人体运行八卦图”。人体是一个具有复杂结构和复杂功能的系统，至今依然无法确定人体的内涵和界面。‘人体八卦’其意就是反映人体的八卦体象和八卦在人体诊断中的应用，这里最为重要的是天人合一的人天观问题。人体不但普遍存在着太极阴阳全息，而且普遍存在着‘八卦’全息。人体是一个把‘八卦’，各部又都充满着小‘八卦’全息，，无论眼、脐、耳、手、足、腹、舌、脉等都存在着‘八卦’全息，并且都可以‘八卦’定方位。通过‘八卦’体现了人体的相关性和整体性。人体又是一个大太极，而各部位又都存在着小太极，大脑及五脏都存在着太极两仪，人体是一个大阴阳合物体，而其它各部又都是小阴阳合抱体。“人体运行八卦图”反映了人与天地宇宙所形成的一个统一整体。人离不开宇宙所赋予的自然环境，而宇宙间的运动变化又折射在人体身上，宇宙与人体在各自运动过程中具有相互感应的效应，通过八卦反映了天人一理，医易相通的原理。全图共二十层内容，将天体运行的规律与人体七经八脉，经络穴位及饮食健康的运行变化联系起来，形成天人合一的体系。此图显示了十二经络的兴奋时间及自然物象，对指导养身，疾病治疗，康复锻炼，对时间医学，易医学，顶测医学的研究具有实用价值。</div>
+  <div style="resize:both; overflow:auto; border:2px solid #ddd; width:300px; padding:10px 20px; display:inline-block;">我们是最美的星星，我们是孤单的旅行，记载心中，想懂得爱情的意义</div>
+  <div style="width:150px; height:50px; border:2px solid #F3F; padding:10px; outline-offset:20px; outline:2px solid red; position:relative; float:right; margin-right:20px; display:inline-block;">我们是天空的星星</div>
+</body>
+</html> 

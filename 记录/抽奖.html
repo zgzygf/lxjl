@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  charset="utf-8" />
+<title>抽奖</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<!--抽奖 start-->
+   <div id="title" class="title">开始抽奖啦!</div>
+   <div class="btns">
+      <span id="play">开 始</span>
+      <span id="stop">结 束</span>
+   </div>
+<!--抽奖 end-->
+<!--全选案例 start-->
+   <div id="list">
+      <input type="checkbox" value="例子1">例子一
+      <input type="checkbox">例子二
+      <input type="checkbox">例子三
+      <input type="checkbox">例子四
+      <input type="button" value="全选" onClick="fn()">
+   </div>
+<!--全选案例 end-->
+<!--图片轮播 start-->
+   <div  style="margin:0 auto; width:400px;height:200px; border:0px red solid; position:relative">
+     <img id="obj" src="../images/1.jpg" onMouseOver="clearAuto()" onMouseOut="startAuto()" width="400px; height:200px;">
+   <div id="zgb" style="width:80px; height:20px; position:absolute; right:0px; bottom:-50px;">
+     <div class="sz car" onMouseOver="clearAuto()" onMouseOut="startAuto()" onClick="mnu(0)">1</div>
+     <div class="sz" onMouseOver="clearAuto()" onMouseOut="startAuto()" onClick="mnu(1)">2</div>
+     <div class="sz" onMouseOver="clearAuto()" onMouseOut="startAuto()" onClick="mnu(2)">3</div>
+     <div class="sz" onMouseOver="clearAuto()" onMouseOut="startAuto()" onClick="mnu(3)">4</div>
+   </div> 
+   </div>
+<!--图片轮播 end-->
+<!--日期 倒计时效果 start-->
+   <div id="show">显示时间位置</div>
+   <div style="width:200px; border:1px #0FF solid; background:#0FF; color:#000; padding:10px; text-align:center">
+      距离双12还有 <b id="textShow" style="color:#F0F"></b> 天
+   </div>
+   <div style="color:#F3C" id="dd">
+      活动限时抢购还有<b id="txtshow"></b>
+   </div>    
+<!--日期 倒计时效果 end-->
+<!--滚动效果 start-->
+   <p><marquee>默认向左移动。。。。</marquee></p>
+   <p><marquee direction="right" scrolldelay="500">向右滚动。。。。</marquee></p>	
+   <!--  默认滚动方向，滚动方式为alternate,循环3次(loop),速度为2(scrollamount)   -->
+   <p><marquee onMouseOver="this.stop()" onMouseOut="this.start()" scrollamount="8" behavior="alternate" loop="-1">来回滚动。。。。。</marquee></p>
+   <marquee behavior="scroll" scrollamount="10" loop="2" direction="right">向右滚动（从一端滚动到另一端）</marquee>
+   <div class="fl"><marquee style="width:400px; height:150px; background:#ccff66;" direction="up" onMouseOver="this.stop()" onMouseOut="this.start()">区域内滚动。。。。。</marquee></div>
+<!--滚动效果 end-->
+<!--无缝滚动 start-->
+   <div class="fl zgz-gd ml10">
+      <div class="zgz-gd-o">无缝滚动</div>
+      <div class="zgz-gd-t" id="gdc">
+         <ul id="onc">
+           <li>我们是天上的星星</li>
+           <li>我们在孤单的旅行</li>
+           <li>想懂得想你的意义</li>
+           <li>我在梦里，听见心跳的声音</li>
+           <li>我是在等待一个女孩</li>
+           <li>还是在等待沉沦苦海</li>
+           <li>一段情默默灌溉，没有人去管花谢花开</li>
+           <li>冷冷的冰雨在脸上胡乱的拍</li>
+           <li>暖暖的眼泪跟寒雨混成一块</li>
+         </ul>
+         <ul id="ont"></ul>
+      </div>
+   </div>
+    <div class="fl zgz-gd ml10">
+      <div class="zgz-gd-o">间歇性无缝滚动</div>
+      <div class="zgz-gd-t" id="jx">
+         <ul style="margin-top:0px;">
+           <li>在这美丽的夜里</li>
+           <li>等你等到我心痛</li>
+           <li>我在雨中等你</li>
+           <li>我醉了迷了伤了迷途的你</li>
+           <li>如果是这样，像梦一样</li>
+           <li>前尘往事成云烟，消散聚时</li>
+           <li>就连说话的话也不会懂</li>
+           <li>我已经看见，一出悲剧正上演</li>
+           <li>剧中没有喜悦，我任然躲在你的梦里面</li>
+         </ul>
+      </div>
+   </div>
+   <!--无缝滚动 end-->
+   <!--无缝滚动JS start-->
+      <script>
+	var ogrg=document.getElementById("gdc");
+	  var onc=document.getElementById("onc");
+	  var ont=document.getElementById("ont");
+	   ont.innerHTML=onc.innerHTML;
+	  function scrollTop(){
+	  if(ogrg.scrollTop>=onc.offsetHeight+15){
+	    ogrg.scrollTop=0;
+	}else{   
+		  ogrg.scrollTop++;
+		}
+	  }
+	  mySroll=setInterval('scrollTop()',50)
+	  ogrg.onmouseover=function(){
+   clearInterval(mySroll);	 
+}	
+ ogrg.onmouseout=function(){
+   	 mySroll=setInterval('scrollTop()',50)   
+  }
+      </script>
+   <!--无缝滚动 end-->
+   <!--间歇性无缝滚动 start-->
+  <script>
+     var area=document.getElementById("jx");
+	 var liHeight=22;
+	 area.innerHTML +=area.innerHTML;
+	 area.scrollTop=0;
+	 var speed=50;
+	 var delay=2000;
+function startMove(){
+     area.scrollTop++;
+     time=setInterval('scrollUp()',speed);	
+}
+function scrollUp(){
+    //area.scrollTop++;
+  if(area.scrollTop%liHeight==0){
+	 clearInterval(time); 
+	 setTimeout("startMove()",delay)
+ }else{
+	 area.scrollTop++;
+	 if(area.scrollTop>=area.scrollHeight/2){
+	    area.scrollTop=0;
+	}       
+  }
+}
+setTimeout("startMove()",delay);//初始化	 
+  </script>
+  <!--间歇性无缝滚动 end-->
+</body>
+</html>  

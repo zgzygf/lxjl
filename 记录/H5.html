@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+  function message(){
+	    alert("该页面是通过onload事件调用的H5以及资料");
+	  }
+</script>
+</head>
+
+<body onload="message()">
+<canvas id="myCanvas" width="200" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<script type="text/javascript">
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.fillStyle="#000";
+ctx.fillRect(20,20,150,100);
+</script>
+<canvas id="myCanv" width="200" height="150" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+var d=document.getElementById("myCanv");
+var ctx=d.getContext("2d");
+var my_gradient=ctx.createLinearGradient(0,0,0,100);//从上往下的渐变
+my_gradient.addColorStop(0,"red");//从黑色开始
+my_gradient.addColorStop(0.5,"blue");
+my_gradient.addColorStop(1,"green");//白色结束
+ctx.fillStyle=my_gradient;
+ctx.fillRect(25,20,150,100);
+</script>
+<canvas id="hb" width="200" height="150" style="border:1px solid #d3d3d3"></canvas>
+<script>
+  var b=document.getElementById("hb");
+  var ctx=b.getContext("2d");
+  var my_gradient=ctx.createLinearGradient(0,0,150,0);
+  my_gradient.addColorStop(0,"black");
+  my_gradient.addColorStop(0.5,"green");
+  my_gradient.addColorStop(1,"red");
+  ctx.fillStyle=my_gradient;
+  ctx.fillRect(20,20,150,100);
+</script>
+<form action="/example/html5/demo_form.asp" method="get">
+Webpage: <input type="url" list="url_list" name="link"/>
+<datalist id="url_list">
+	<option label="W3School" value="http://www.w3school.com.cn"/>
+	<option label="Google" value="http://www.google.com"/>
+	<option label="Microsoft" value="http://www.microsoft.com"/>
+</datalist>
+<input type="submit"/>
+</form>
+<!--     
+<script>
+  var d=new Date()
+  var time=d.getHours()
+  if(time<10){
+	    document.write("god moring");
+	  }
+	  else if(time>=10&&time<16){
+		     document.write("<b>Hellow day</b>");
+		  }else{
+			    document.write("<b>Hellow World</b>")
+			  }
+var d=new Date(); 
+var time=d.getHours();
+if(time<10){
+	 alert("早上好");
+	}else if(time>=10&&time<17){
+	 	 alert("Hellow Day");
+	}else{alert("晚上好");}
+</script><strong><strong><strong></strong></strong></strong>
+-->
+<p>dasdgdtgdfgs<br/>dfgagaga</p>
+<p>"我们是天上的星星<mark>想懂得</mark>相遇的意义"</p>
+<progress max="100" value="55">   
+</progress>
+<p>
+ "发布日期"
+ <time datetime="2013-10-18T09:00">9:00</time>
+ "更新日期"
+ <time datetime="2013-10-20T09:00Z" pubdate>9:00</time>
+</p>
+<h3>details</h3><!--目前只有 Chrome 和 Safari 6 支持 <details> 标签-->
+<details open>
+  <summary>MackBook Pro Specification</summary>
+  <ul>
+     <li>我们是天上的星星</li>
+     <li>我们是孤单的旅行</li>
+     <li>想懂得相遇的意义</li>
+  </ul>
+ </details>
+ <h3>datalist</h3>
+ <input id="mycar" list="cars">
+ <datalist id="cars">
+    <option value="BMW"></option>
+    <option value="Ford"></option>
+    <option value="Volvo"></option>
+  </datalist>
+  <input id="cars" list="mycars"><!--list之后必须有s,  -->
+   <datalist id="mycars">
+     <option value="sdf"></option>
+     <option value="sdfsd"></option>
+   </datalist>
+ <h3>keygen</h3>
+ <form action="demo_keygen" method="get">
+    Username:
+    <label>
+     	<input type="text">
+    </label>
+    Encryption:
+    <keygen name="security">
+    <input type="submit">
+ </form>
+ <h3>output</h3>
+ <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+    0
+    <input type="range" id="a" value="50">
+    100+
+    <input type="number" id="b" value="50">
+    =
+    <output name="x" for="a b">
+    139
+    </output>
+ </form>
+  <div>
+     <style type="text/css" scoped>
+        h1{color:red;}
+		p{color:blue;}
+     </style>
+     <h1>这是一个例子</h1>
+     <p>是一个段落例子<mark>不能常用，常用会使css文件显得凌乱</mark></p>
+  </div> 
+  <iframe seamless="seamless" srcdoc="<h1>Hello</h1>" sandbox src="http://www.baidu.com"></iframe>
+  <!--  有属性srcdoc则src属性里面的内容被覆盖 sandbox属性禁止内线框架表单提交  -->
+  <iframe seamless  src="http://www.baidu.com"></iframe>
+  <form oninput="y.value=parseInt(a.value)+parseInt(b.value)">
+     <input type="range" id="a" value="60">+
+     <input type="number" id="b" value="80">
+     <output name="y" for="a b">
+        =140		
+     </output>
+  </form>
+  <script type="text/javaScript">
+      function tc(){
+		   score=prompt("请输入你的成绩");
+		   if(score>90){
+			     document.write("很棒!");
+			   } 
+			   else if(score>=75){
+				    document.write("不错吆!");
+				   }
+			   else if(score>=60){
+				   document.write("要加油!");
+				   } 
+				   else{
+					    document.write("别灰心!继续努力");
+					   }
+		 }
+		 function yz(){
+			  var password=confirm("你是男的吗？");
+			  if(password==true){
+				    document.write("你是男的!");
+				  } 
+				else{
+					 document.write("你是女的!");
+					}
+			}
+	  function Wopen(){
+		    window.open('http://www.imooc.com','_blank','height=600,width=400,left=0,top=100');
+		  }
+		     /*
+			   _blank：在新窗口显示目标网页
+			   _self：在当前窗口显示目标网页
+			   _top：框架网页中在上部窗口中显示目标网页
+		     */
+			function gb(){
+				  var b=document.getElementById("txt");
+				  b.style.color="red";
+				  b.style.width="300px"
+				}
+			function qx(){
+				  var b=document.getElementById("txt");
+				  b.style.cssText="null";
+				}		
+  </script>
+      <input type="button" value="成绩测试" onclick="tc()">
+      <input type="button" value="鉴定"    onclick="yz()">
+      <input type="button" value="新窗口" onclick="Wopen()">
+      <input type="button" value="改变颜色" onclick="gb()">
+      <input type="button" value="取消设置" onclick="qx()">
+      <input type="button" id="btn3" value="按钮">
+<div>
+      <style type="text/css" scoped>
+			 #txt{
+				 width:200px;    	
+				 height:50px;      
+				 padding:5px;
+				 border:1px #CCC solid;
+			   }        
+	   </style>   
+ <p id="txt">我们是天上的星星，我们在孤单的旅行，想懂得。。。</p> 
+</div>
+<script>
+ var btn3=document.getElementById('btn3');
+ btn3.addEventListener('click',fn,false);
+ function fn(){
+    alert('hellow world');
+ }
+</script>
+</body> 	
+</html>
+     

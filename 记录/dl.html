@@ -1,0 +1,219 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="智慧工业HSE管理•职业健康系统" />
+<meta content="IE=10;IE=9;IE=8;IE=7;IE=EDGE" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" href="http://192.168.1.188:9000/wit/static/favicon.ico?6" />
+<link href="http://192.168.1.188:9000/wit/static/css/bootstrap.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" type="text/css"
+	href="http://192.168.1.188:9000/wit/static/plugins/uploadify/uploadify.css">
+
+	
+<!--基本共用样式-->
+<link href="http://192.168.1.188:9000/wit/static/css/style.css?20160101" rel="stylesheet" type="text/css">
+<link href="http://192.168.1.188:9000/wit/static/css/layout.css?20160101" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery-1.7.1.min.js"></script>
+
+
+<!-- JavaScript Plugins -->
+<script src="http://192.168.1.188:9000/wit/static/js/bootstrap.min.js"></script>
+<!--bottstrap 库文件在页头加载---->
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery-ui.js"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery.md5.js"></script>
+<!-- 分页查询 -->
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/table.js"></script>
+<!--表单验证-->
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery.validate.js"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery.metadata.js"></script>
+<!--弹出提示框插件-->
+<link href="http://192.168.1.188:9000/wit/static/css/jquery.jgrowl.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery.jgrowl.min.js"></script>
+<link rel="stylesheet" href="http://192.168.1.188:9000/wit/static/css/ui-dialog.css">
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/art-dialog/dialog-min.js"></script>
+<!--日历插件-->
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/laydate.js"></script>
+<link href="http://192.168.1.188:9000/wit/static/css/base.css?20160101" rel="stylesheet" type="text/css">
+<link href="http://192.168.1.188:9000/wit/static/css/preloading.css?20160101" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery.form.js"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/jquery.string.min.js"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/giian.core.js?20160101"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/witsafe.tool.js?20160101"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/witsafe.workflow.js?20160101"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/witsafe.remind.js?20160101"></script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/witsafe.umessage.js?20160101"></script>
+<script type="text/javascript">
+var home_url = "http://192.168.1.188:9000/wit";
+var jsessionid = "DA78ADE60F28C21DE38BAF10B60B333B";
+</script>
+<script type="text/javascript" src="http://192.168.1.188:9000/wit/static/js/zahb.js"></script>
+<!--[if lte IE 8]> 
+<div id="ie6-warning">
+	<div id="ie_content">
+		您使用的IE浏览器版本较低，在本页面的显示效果可能有差异。建议您升级到 <a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank">Internet Explorer9 或更高版本</a> 或以下浏览器： <a href="http://www.mozillaonline.com/">Firefox</a> / <a href="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="http://www.apple.com.cn/safari/">Safari</a> / <a href="http://www.operachina.com/">Opera</a>
+<a class="ietss">暂不升级</a> 
+	</div>
+<script>
+$(function(){
+	$(".ietss").click(function(){
+		$("#ie6-warning").hide(0);
+	});
+});
+</script>
+</div> 
+<![endif]-->
+<link href="http://192.168.1.188:9000/wit/static/css/login.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+  liu-input-group.label { width: 10em; float: right; }
+  liu-input-group.label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+</style>
+
+</head>
+<body>
+
+<div class="liu-container">
+	<div class="liu-login-box">
+		<div class="liu-login-ico liu-login-top">头部边框</div>
+		<div class="liu-login-ico liu-login-con">
+			<div class="liu-login-logobox"><img src="http://192.168.1.188:9000/wit/static/images/logo.png"/></div>
+			<div class="liu-login-main">
+				<form id="form" method="post">
+					<input type="hidden"  id="loginenpassword" name="password" placeholder="登录密码">
+					<dl>
+						<dt>
+							<i class="liu-login-ico liu-login-mainico zhico"></i>
+						</dt>
+						<dd>
+							<div class="liu-input-group">
+							<input type="text" name="username" value="" type="text" class="liu-input-control " style="position:relative">
+                             <!--修改 start-->
+                               <dg style="width:20px;margin-top:10px; position:absolute;right:0px; top:0px;">
+                                  <a href="javascript:;" class="pop-condel qxx" style="vertical-align:middle" >
+                                        <i class="ico1226 del-remove"></i>
+                                  </a>
+                                </dg>
+                              <!--修改 end-->
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>
+							<i class="liu-login-ico liu-login-mainico pwico"></i>
+						</dt>
+						<dd>
+							<div class="liu-input-group">
+			 <input type="password" id="loginpassword" value="" type="text" required  class="liu-input-control" style="position:relative">
+                            <!--修改 start-->
+                               <dg style="width:20px;margin-top:10px; position:absolute;right:0px; top:0px;">
+                                  <a href="javascript:;" class="pop-condel qx" style="vertical-align:middle" >
+                                        <i class="ico1226 del-remove"></i>
+                                  </a>
+                                </dg>
+                              <!--修改end-->
+							</div>
+						</dd>
+					</dl>
+					<input type="submit" value=""  class="liu-login-ico liu-login-btn"/>
+				</form>
+			</div>
+		</div>
+		<div class="liu-login-ico liu-login-bom">底部边框</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	//登录前验证：用户名密码不能空
+	$("#form").validate({
+		rules: {
+	       username: {
+		        required: true,
+		        minlength: 5
+	       },
+	       password: {
+		        required: true,
+		        minlength: 6
+	       }
+	    },
+	    messages: {
+	       username: {
+		        required: "<span style='color:red'>  请输入用户名</span>",
+		        minlength: "<span style='color:red'>  用户名应该在2个汉字或四个字符以上</span>"
+	       },
+	       password: {
+		        required: "<span style='color:red'>  请输入密码</span>",
+		        minlength: "<span style='color:red'>  登录密码应该在6位或6位字符以上</span>"
+	       }
+	     },
+     
+		submitHandler : function(form) {
+			login();
+		}
+	});
+	$("#loginpassword").rules("add", {
+         required:true,
+         minlength: 6,
+         messages: {
+                required: "<span style='color:red'>  请输入密码</span>",
+                minlength: "<span style='color:red'>  登录密码应该在6位或6位字符以上</span>"
+         }
+     });
+
+});
+
+function login() {
+	var loginpassword = $("#loginpassword").val();
+	//对密码进行加密后传送
+	$("#loginenpassword").val($.md5(loginpassword));
+	$.ajax({
+		url : 'http://192.168.1.188:9000/wit/login',
+		data : $("#form").serialize(),
+		type : 'post',
+		dataType : 'json',
+		success : function(data) {
+			if(data.code==0){
+				window.location.href = "http://192.168.1.188:9000/wit/home";
+			}else{
+				alertDiag(data.content);
+			}
+		},
+		error : function() {
+			alertDiag("异常！请重新尝试或者联系管理员!");
+		}
+	});
+}
+//智慧职安
+/*根据分辨率高度调整主体内容是否显示滚动条 start*/
+$(window).load(function(){
+	var height=$(window).height();
+	if(height<800){
+		$(".liu-login-box").css({"margin-top":"-320px","top":"50%","bottom":"initial"});
+	}	
+});
+$(window).resize(function() {//判断窗体调整是否显示滚动条
+	var height=$(window).height();
+	
+	if(height<800){
+		$(".liu-login-box").removeAttr("style");
+		$(".liu-login-box").css({"margin-top":"-320px","top":"50%","bottom":"initial"});
+	}else{
+		$(".liu-login-box").removeAttr("style");
+		$(".liu-login-box").css({"bottom":"-246px"});
+		}
+});
+/*根据分辨率高度调整主体内容是否显示滚动条 end*/
+$(window).load(function(){
+   $(".qx").click(function(){
+    $(this).parent("dg").siblings(".liu-input-control").attr("value","");  	
+})
+    $(".qxx").click(function(){
+    $(this).parent("dg").siblings(".liu-input-control").attr("value","");  	
+})
+});
+</script>
+</body>
+</html>
+
