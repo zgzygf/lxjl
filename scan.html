@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+ 	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<script src="js/mui.min.js"></script>
+	</head>
+
+  <body style="background-color: #fff" onLoad="timeCounter('timeCounter')">
+  	<div class="bod_mian">
+  		<div class="header_top">
+  			<a class="huit" href="person.html"></a>
+  			扫码入库
+  		</div>
+		<div class="h3_title">
+			<a href="javascript:;">扫码枪入库</a>
+			<a href="scano.html" class="ewm">g</a>
+		</div>
+		<div class="focus">
+			<input type="text" name="" placeholder="点击此处后使用手机扫码录入">
+		</div>
+		<div class="tab_ho">
+			<div class="table_list">
+				<ul>
+					<li>商品名称</li>
+					<li>商品编码</li>
+					<li>商品数量</li>
+				</ul>
+			</div>
+			<ul class="tab_list">
+				<li>西红柿</li>
+				<li>245525666</li>
+				<li>23</li>
+			</ul>
+			<ul class="tab_list">
+				<li>黄瓜</li>
+				<li>8565652</li>
+				<li>65</li>
+			</ul>
+			<ul class="tab_list">
+				<li>茄子</li>
+				<li>69445</li>
+				<li>23</li>
+			</ul>
+			<ul class="tab_list">
+				<li>黄瓜</li>
+				<li>8565652</li>
+				<li>65</li>
+			</ul>
+			 <ul class="tab_list">
+				<li>茄子</li>
+				<li>69445</li>
+				<li>23</li>
+			</ul>
+			<ul class="tab_list">
+				<li>黄瓜</li>
+				<li>8565652</li>
+				<li>65</li>
+			</ul>
+			<ul class="tab_list">
+				<li>茄子</li>
+				<li>69445</li>
+				<li>23</li>
+			</ul>
+			<ul class="tab_list">
+				<li>黄瓜</li>
+				<li>8565652</li>
+				<li>65</li>
+			</ul>
+			<ul class="tab_list">
+				<li>茄子</li>
+				<li>69445</li>
+				<li>23</li>
+			</ul>
+			<ul class="tab_list">
+				<li>黄瓜</li>
+				<li>8565652</li>
+				<li>65</li>
+			</ul> 
+		</div>
+		<p id="timeCounter">01 : 00 : 00</p>
+	</div>
+	<div class="foot_fixed">
+		<div  id='confirmBtno' class="circle" >
+			商品入库
+		</div>
+	</div>
+	<script type="text/javascript">
+		//两小时倒计时
+			var timeCounter = (function() {
+			 var int;
+			 var total = 7200;
+			 return function(elemID) {
+			  obj = document.getElementById(elemID);
+			  var s = (total%60) < 10 ? ('0' + total%60) : total%60;
+			  var h = total/3600 < 10 ? ('0' + parseInt(total/3600)) : parseInt(total/3600);
+			  var m = (total-h*3600)/60 < 10 ? ('0' + parseInt((total-h*3600)/60)) : parseInt((total-h*3600)/60);
+			  obj.innerHTML = h + ' : ' + m + ' : ' + s;
+			  total--;
+			  int = setTimeout("timeCounter('" + elemID + "')", 1000);
+			  if(total < 0) clearTimeout(int);
+			 }
+			})()
+		//函数体
+		var screen=function(){
+			var win_h=document.documentElement.clientHeight;	
+		
+			var bod_mian = document.querySelector('.bod_mian');
+			var foot_fixed = document.querySelector('.foot_fixed');
+			console.log(document.defaultView.getComputedStyle(bod_mian)['height'])//获取元素属性值。。。重点原生js
+
+			function getStyle(obj,attr){ 
+			  if(obj.currentStyle){ 
+			    return obj.currentStyle[attr]; 
+			  }     
+			  else{ 
+			    return document.defaultView.getComputedStyle(obj,null)[attr]; 
+			  } 
+			}
+			var bod_h = getStyle(bod_mian, 'height')
+			var Top = getStyle(foot_fixed, 'top')
+			var offseth=getStyle(foot_fixed, 'height')
+			if((win_h-parseInt(bod_h)>=parseInt(offseth) )){
+				foot_fixed.style.top=Top
+			}else{
+				foot_fixed.style.top=bod_h
+			}
+		}
+		var height=new screen()
+		document.getElementById("confirmBtno").addEventListener('tap', function() {
+				var btnArray = ['确定'];
+				mui.confirm('商品数据已经同步入库，请进行下一步', '', btnArray, function(e) {
+					if (e.index == 1) {
+						return false
+					} 
+				})
+			}); 
+	</script>
+  </body>
+</html>
