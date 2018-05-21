@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<style type="text/css">
+			.wrap{
+				width: 500px;
+				height: 800px;
+				border: 1px solid black;
+				margin: auto;
+				position: relative;
+				background-color: black;
+			}
+			#time{
+				font-size: 30px;
+				position: absolute;
+				left: 0;
+				color: white;
+			}
+			#count{
+				font-size: 30px;
+				position: absolute;
+				right: 0;
+				color: white;
+			}
+			#wenti{
+				font-size: 300px;
+				text-align: center;
+				line-height: 670px;
+			}
+			#daan{
+				font-size: 50px;
+				display:  flex;
+				list-style-type: none;
+				/*justify-content: space-around;*/
+			}
+			#daan li{
+				margin-left: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--页面元素-->
+		<div class="wrap">
+			<!--剩余时间-->
+			<div id="time">
+				剩余时间:0
+			</div>
+			<!--分数-->
+			<div id="count">
+				数量:0
+			</div>
+			<!--问题-->
+			<div id="wenti">
+				X
+			</div>
+			<!--答案-->
+			<ul id="daan">
+				<li>红<>
+				<li>黄<>
+				<li>蓝<>
+				<li>绿<>
+				<li>紫<>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//获取元素
+		var timediv = document.getElementById("time");
+		var countdiv = document.getElementById("count");
+		var quediv = document.getElementById("wenti");
+		var ansul = document.getElementById("daan");
+		var lis = document.getElementsByTagName("li");
+		//剩余时间部分
+		
+		
+		//问题变化部分
+		//创建数组 将来要随机的文字
+		arr1 = ["红","黄","蓝","绿","紫"];
+		//创建数组 将来要随机的颜色
+		arr2 = ["red", "yellow", "blue", "green", "purple"];
+		//随机一个函数
+		function mun (m,n) {
+		return Math.floor(Math.random()*(n-m+1)+m);	
+		}
+		var a = " ";
+		//创建一个随机问题
+	    function wenti(){
+	    		//文字
+		quediv.innerHTML = arr1[mun(0,arr1.length-1)];
+		//颜色
+		var color =arr2[mun(0,arr1.length-1)];
+		quediv.style.color =color;
+		switch (color){
+			case "red":
+			a = "红";
+				break;
+				case "yellow":
+			a = "黄";
+				break;
+				case "blue":
+			a = "蓝";
+				break;
+				case "green":
+			a = "绿";
+				break;
+				case "purple":
+			a = "紫";
+				break;
+			default:
+				break;
+		}
+	    }
+		//先随机一次
+		wenti();
+		//洗牌算法
+		function randomarr (x){
+			for (var i = 0; i < x.length; i++) {
+				var y = mun(0,arr1.length-1);
+				if (i != y) {
+					var temp = x[i];
+					x[i] = x[y];
+					x[y] = temp;
+				}
+			}
+		}
+		//随机答案
+		function daan () {
+			//对数组洗牌打乱
+			randomarr(arr1);
+			randomarr(arr2);
+			//处理答案
+			for (var i = 0; i < lis.length; i++) {
+				//文字
+				lis[i].innerHTML =arr1[i];
+				//颜色
+				lis[i].style.color = arr2[i];
+			}
+		}
+		//先调用一次随机答案
+		daan();
+		//给li添加点击事件
+		var time = 11;
+		var time1 = setInterval(function(){
+			time--;
+			timediv.innerHTML = "剩余时间:"+time;
+			if(time <= 0){
+				clearInterval(time1);
+				for (var i = 0; i < lis.length; i++) {
+					// lis[i].onclick = function () {
+					// 	return
+					// }
+					lis[i].onclick=null;
+				}
+				alert("游戏结束");
+			}else{
+				var count = 0;
+				for (var i = 0; i < lis.length; i++) {
+					lis[i].onclick = function () {
+						if (this.innerHTML == a) {
+							count++;
+							countdiv.innerHTML ="数量"+count;
+							wenti();
+							daan();
+						} else{
+							alert("打错了");
+						}
+					}
+				}
+			}
+		},1000);
+	</script>
+<ml>
