@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+   <div class="wrap" style="width: 200px; height: 200px;">
+   	  <ul style="margin: 0; padding:0">
+   	  	<li  style="width: 200px; height: 200px; position: relative; left: 500px; top: 300px;"><img src="img/bg-body.jpg" width="200" height="200" >鼠标点击按下</li>
+   	  </ul>
+   </div>
+
+   <script type="text/javascript">
+   	 var aLi=document.querySelectorAll('.wrap ul li');//获取元素的方法
+   	 var oWrap = document.querySelectorAll('.wrap')[0]
+   	 var length=aLi.length;
+   	 var leftMin = (window.innerWidth-oWrap.clientWidth)/2,//左边界
+   	     leftMax= (window.innerWidth-oWrap.clientWidth)/2;//右边界
+   	     topMin = -(window.innerHeight-oWrap.clientHeight)/2,
+   	     topMax = (window.innerHeight-oWrap.clientHeight)/2
+   	 for(var i=0;i<length;i++){
+   	 	aLi[i].onmousedown=function(e){
+   	 		e=e||window.event;
+   	 		var startX=e.clientX;//鼠标按下的位置
+   	 		var startY=e.clientY;
+   	 		var startLeft = this.offsetLeft;//获取当前的left
+   	 		var startTop = this.offsetTop;
+   	 		document.onmousemove=function(e){
+   	 			e=e||window.event;
+   	 			var targetX=e.clientX;
+   	 			var targetY=e.clientY;
+   	 			// console.log(targetX,targetY)
+
+   	 			var moveX=targetX-startX;//存储鼠标水平位置的差值
+   	 			var moveY=targetY-startY;//存储鼠标垂直位移差值
+   	 			var nowleft=startLeft+moveX;//存储当前的位置
+   	 			var nowtop=startTop+moveY;
+   	 			console.log(leftMax)
+   	 			// nowleft = Math.min(nowleft,leftMax);
+   	 			// nowleft = Math.max(nowleft,leftMin);
+   	 			// nowtop = Math.min(nowtop,topMax);
+   	 			// nowtop = Math.max(nowtop,topMin);
+   	 			if(nowleft<0){
+   	 				nowleft=-8
+   	 			}
+   	 		    if(nowleft>(window.innerWidth-oWrap.clientWidth)){
+   	 		    	nowleft=window.innerWidth-oWrap.clientWidth
+   	 		    }
+   	 			this.style.left=nowleft +"px";
+   	 			this.style.top=nowtop +"px";
+   	 			
+   	 		}.bind(this)
+   	 		document.onmouseup = function(){
+   	 			document.onmousemove=null;//去除移动函数
+   	 		}
+   	 		console.log(this)
+   	 		// console.log(startX,startY)
+   	 		return false;//阻止浏览器对图片的默认行为
+   	 	}
+   	 }
+   </script>
+</body>
+</html>
