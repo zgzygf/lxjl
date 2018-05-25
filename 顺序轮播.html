@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>顺序轮播</title>
+	<style type="text/css">
+		.banner{
+			display: block;
+			width: 100%;
+			margin: 100px auto;
+		}
+		.banner ul{
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 400px;
+		    margin:0;
+			padding:0;
+			overflow: hidden;
+		}
+		.banner ul li{
+			width:1000px;
+			height:400px;
+		   position: absolute;
+		   list-style: none;
+		}
+		.banner ul li img{
+			width:1000px;
+			height:400px;
+			transition: all 0.5s;
+		}
+		.list1{
+			transform: scale(0.9);
+			transform-origin:0% 100%;
+			z-index: 1;
+		}
+		.list2{
+			transform: translateX(400px);
+			z-index: 3;
+		}
+		.list3{
+		/*	transform: scale(0.9);*/
+			transform: translate(900px,30px);
+			transform-origin:100% 100%;
+			z-index: 2;
+		}
+		.list4{
+			transform: translateX(2100px);
+			z-index: 1;
+		}
+		.list5{
+			transform: translateX(2100px);
+			z-index: 1;
+		}
+		.list6{
+			transform: translateX(2000px);
+			z-index: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<ul>
+			<li class="list1">
+				<img src="">
+			</li>
+			<li class="list2">
+				<img src="">
+			</li>
+			<li class="list3">
+				<img src="">
+			</li>
+			<li class="list4">
+				<img src="">
+			</li>
+			<li class="list5">
+				<img src="">
+			</li>
+			<li class="list6">
+				<img src="">
+			</li>
+		</ul>
+		<p>
+			<button onclick="step()">上一步</button>
+			<button onclick="next()">下一步</button>
+		</p>
+	</div>  
+	<script type="text/javascript">
+		var aLi=document.querySelectorAll("li");
+		var img=document.querySelectorAll("img");
+		var aName=['img/0.jpg','img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg']
+		var len=aLi.length;
+		var index=0;
+		for(var i=0; i<len;i++){ 
+			// var src='img/'+i+'.jpg'
+			var src=aName[i]
+			 img[i].setAttribute('src',src)
+		}
+		function step(){
+			aName.unshift(aName[5])
+			aName.pop()
+			for(var i=0; i<len;i++){ 
+			// var src='img/'+i+'.jpg'
+			// aLi[i].style.transition="all"+0.5+'s'
+			var src=aName[i]
+			 img[i].setAttribute('src',src)
+		
+		  }
+		}
+		function next(){
+			aName.push(aName[0])
+			aName.shift()
+			for(var i=0;i<len;i++){
+				var src=aName[i]
+			 img[i].setAttribute('src',src)
+			}
+		}
+		//自动运行
+		var time={
+			auto:function(){
+				aName.push(aName[0])
+				aName.shift()
+				for(var i=0;i<len;i++){
+					var src=aName[i]
+				 img[i].setAttribute('src',src)
+				}
+			}
+		}
+		var lun=setInterval(time.auto,2000)
+		for(var i=0;i<len;i++){
+			aLi[i].addEventListener("mouseenter",function(){
+				clearInterval(lun)
+			})
+			aLi[i].addEventListener("mouseleave",function(){
+				 lun=setInterval(time.auto,2000)
+			})
+
+		}
+	</script>
+</body>
+</html>
