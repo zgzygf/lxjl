@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>绑定事件和移除事件检测</title>
+</head>
+<body>
+	<input type="button" value="test1" id="btn1" name="">
+	<input type="button" value="test2" id="btn2" name="">
+	<input type="button" value="test3" id="btn3" name="">
+	<br/>
+	<input type="button" name="btn4" id="btn4" value="test4">
+	<br/>
+	<a href="http://www.maiziedu.com/course/229-14623/" id="myBlog">我的资料-阻止默认行为传统</a>
+	<a href="http://www.maiziedu.com/course/229-14623/" onclick="alert('阻止默认行为'); return false">阻止默认行为方法简化</a>
+	<script type="text/javascript">
+		var EventUtil={
+			//检测绑定事件
+			addHandler:function(element,type,handler){
+				if(element.addEventListener){
+					element.addEventListener(type,handler,false);
+				}else if(element.attachEvent){
+					element.attachEvent('on'+type,handler);
+				}else{
+					element['on'+type]=handler;
+				}
+			},
+			//通过removeHandler移除绑定事件
+			removeHandler:function(element,type,handler){
+				if(element.removeEventListener){
+					element.removeEventListener(type,handler,false);
+				}else if(element.detachEvent){
+					element.detachEvent('on' +type,handler);
+				}else{
+					element['on' + type]= null;
+				}
+			},
+			//得到事件对象
+			getEvent:function(event){
+				return event?event:window.event;
+			},
+			//得到事件目标事件
+			getTarget:function(event){
+				return event.target||event.srcElement;
+			},
+			//取消默认行为
+			preventDefault:function(event){
+				if(event.preventDefault){
+					event.preventDefault();
+				}else{
+					event.returnValue=false;
+				}
+			},
+			//取消事件冒泡
+			stopPropagation:function(event){
+				if(event.stopPropagation){
+					event.stopPropagation();
+				}else{
+					event.cancelBubble=true;
+				}
+			}
+		};
+
+		//例子测试绑定移除事件
+		var btn1=document.getElementById('btn1');  
+		var btn2=document.getElementById('btn2');
+		function test(){
+			alert('btn1按钮方法')
+		}
+		function test1(){
+			alert('开始移除btn1按钮test方法')
+			EventUtil.removeHandler(btn1,'click',test)
+		}
+		EventUtil.addHandler(btn1,'click',test);
+		EventUtil.addHandler(btn2,'click',test1);
+		//例子2
+		var btn3=document.getElementById('btn3');
+		var hande=function(e){
+			switch(e.type){
+				case 'click':
+				alert('clicked!');
+				break;
+				case 'mouseover':
+				event.target.style.backgroundColor='red';
+				break;
+				case 'mouseout':
+				event.target.style.backgroundColor='';
+				break
+			}
+		};
+		btn3.onclick=hande;
+		btn3.onmouseover=hande;
+		btn3.onmouseout=hande;
+		//eventPhase属性，如果是在捕获阶段调用的事件处理程序，eventPhase=1;
+		//如果事件处理程序处于目标对象上，eventPhase=2;
+		//如果事件冒泡阶段调用事件处理程序，eventPhase=3
+
+		//例子3
+		var btn4=document.getElementById("btn4");
+		EventUtil.addHandler(btn4,'click',function(event){
+			event=EventUtil.getEvent(event);
+			var target=EventUtil.getTarget(event);
+			alert(target.tagName);
+		});
+		var link=document.getElementById("myBlog");
+		link.onclick=function(event){
+			event=EventUtil.getEvent(event);
+			EventUtil.preventDefault(event); 	
+		}
+	</script>
+</body>
+</html>
