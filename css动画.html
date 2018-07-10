@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	动画效果</title>
+	<style>
+		.main{ width:1300px; margin: 150px auto; padding: 20px; background-color: #f5f5f5; }
+		.header{
+			background-color:#c8305f; padding:5px 0; 
+		}
+		.header_top{ border-top: 1px dashed #fff; border-bottom: 1px dashed #fff; margin: 0; padding: 15px 0; text-align: center; color: #fff; }
+		.main:after{ display: block; content: ""; height: 0; line-height: 0; clear: both; visibility: hidden; }
+		.box1{ width:200px; margin: 10px; float: left; height: 150px; position: relative; }
+		.box1 img{ width: 100%; height: 100%; }
+		.box1:hover img{ opacity: 0.3; }
+		.box1:hover{background-color: #6d6e70; opacity: 1;}
+		.box1 figcaption{ position: absolute; top: 0; left: 0; box-sizing: border-box; width: 100%; height:100%; padding: 20px; color: #fff;}
+		.box1 figcaption:before,.box1 figcaption:after{ position: absolute; top: 30px; right: 30px; bottom: 30px; left: 30px; content: ''; opacity: 0;     transition: opacity 0.35s, transform 0.35s; }
+		.box1 figcaption:before{ border-top: 1px solid #fff; border-bottom: 1px solid #fff; transform: scale(0,1); }
+		.box1 figcaption:after{  border-left: 1px solid #fff; border-right: 1px solid #fff; transform: scale(1,0);  }
+		.box1 figcaption h4{ text-align: center; padding-top: 16%; opacity: 0;transition: transform 0.35s; transform: translate3d(0,-20px,0); }
+		.box1:hover figcaption:before,.box1:hover figcaption:after{ opacity: 1; transform: scale(1); }
+		.box1:hover figcaption h4{ opacity: 1; transform: translate3d(0,0,0);}
+		/*斜框*/
+		.div_blank{ width: 300px; height: 500px; float: left; margin: 10px; }
+		.div_blank_top{ width: 100%; background-color: #f5f5d5; border-top-left-radius:100px; height: 100px; color:red; text-align: center; }
+		.blank_main{ width: 100%;height: 300px;background-color: #f5f5d5; color:red;text-align: center;}
+		.blank_foot{ width: 100%; height: 100px; background-color: #f5f5d5; border-bottom-right-radius: 100px; color:red;text-align: center;}
+		/*图片小时文字替换动画*/
+		.thumbLink {
+				display: block;
+				width: 100%;
+			}
+	.thumbImage {
+		float: left;
+		position: relative;
+		overflow: hidden;
+		display: block;
+		margin-bottom: 0px;
+		box-sizing: border-box;
+		text-align: center;
+		width: 350px;
+		height: 350px;
+	}
+	.thumbImage img{
+	    transition: all 0.7s ease-in-out;
+	}
+	.thumbImage .thumbText h3 {
+		margin-bottom: 10px;
+		padding-top: 10px;
+		color: #fff;
+		border-bottom: 1px solid #fff;
+	    transition: all 1s ease-in-out;
+	}
+	.thumbImage .thumbText p {
+		margin-bottom: 10px;
+		color: #fff;
+	    transition: all 1s ease-in-out;
+	}
+	.thumbImage .thumbTextWrap {
+		position: absolute;
+		top: 0;
+	    height: 100%;
+		padding: 0 20px;
+		opacity: 0;
+		/*background: #7b133c;*/
+		background:#2ec748;
+		text-align: center;
+	    transition: all 1s ease-in-out;
+	}
+	.thumbImage .thumbTextWrap:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -0.5em; /* Adjusts for spacing */
+	}
+	.thumbText {
+	    text-align: center;
+		transform: scale(0);
+	    transition: all 0.7s ease-in-out;
+		display: inline-block;
+	  	vertical-align: middle;
+	  	width: 90%;
+	}
+	.thumbImage:hover img {
+		opacity: 0;
+	    transform: scale(10);
+	}
+	.thumbImage:hover .thumbTextWrap {
+		opacity: 1;
+	}
+    .thumbImage:hover .thumbTextWrap {
+		display: block;
+	}
+	.thumbImage:hover .thumbText {
+		transform: scale(1);
+	}
+	.thumbLink {
+		background:url(img/icon-magnify.png) center center no-repeat #fff;
+		width: 30px;
+		height: 30px;
+		border-radius: 15px;
+		opacity: 0.5;
+		margin: 0 auto;
+	}
+	.thumbLink:hover {
+		opacity: 1;
+	}
+	</style>
+</head>
+<body>
+	<div class="main">	
+		<div class="header">
+			<div class="header_top">
+				动画效果
+			</div>
+		</div>
+		<div class="box1">
+			<img src="img/4.jpg" alt="背景图片">
+			<figcaption>
+				<h4>Fashion Style</h4>
+			</figcaption>
+		</div>
+		<div class="div_blank">
+			<div class="div_blank_top">顶部内容</div>
+			<div class="blank_main" style="color:#7b133c;">主体内容</div>
+			<div class="blank_foot">底部内容</div>
+		</div>
+		<section class="thumbImage">
+        	<img src="img/1.jpg" alt="鼠标移入出现图片" width="350" height="350" class="fullwidth">
+            <div class="thumbTextWrap">
+                <div class="thumbText">
+                    <h3 class="sectionTitle">Gallery Item</h3>
+                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>
+                    <a class="thumbLink" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum."></a>
+                </div>
+            </div>
+        </section>
+	</div>	
+</body>
+</html>
