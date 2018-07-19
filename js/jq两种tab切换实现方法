@@ -1,0 +1,34 @@
+一：原生js实现方法
+
+//医疗人物tab内容切换
+			var allLi=document.querySelectorAll(".Lia");
+			var allUl=document.querySelectorAll(".zgzUl");
+			var len=allLi.length;
+			for(var i=0; i<len; i++){
+				allLi[i].index=i;
+				allLi[i].onclick=function(){
+					var index=this.index;
+					allUl[index].className="mui-table-view mui-grid-view zgzUl on";
+					/*获得父节点*/
+					var child=allUl[index];
+					var parent=child.parentNode;
+					 /*获得父节点的所有孩子节点*/
+   					var childs = parent.children;
+   					 for(var n = 0; n < childs.length;n++){
+				        if (childs[n] !== child){
+				            childs[n].className="mui-table-view mui-grid-view zgzUl"
+				        }
+				    }
+				}
+			}
+   二：jquery实现方法
+   //产品成果切换
+	$(".zgzLi").bind("click",function(){
+		var index = $(".zgzLi").index(this);
+		var ulList=$(this).parents(".zgzdd").siblings(".col-md-9");
+		$(".zgzLi").eq(index).addClass("on").siblings().removeClass("on");
+		ulList.find(".ul_main").eq(index).addClass("on").siblings().removeClass("on");
+	})
+})
+
+ 
