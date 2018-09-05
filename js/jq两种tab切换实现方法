@@ -30,5 +30,26 @@
 		ulList.find(".ul_main").eq(index).addClass("on").siblings().removeClass("on");
 	})
 })
+三：原生js实现多个折叠收起展开效果
+var hfBox=document.querySelectorAll('.slideHf');
+        var box=document.querySelectorAll(".zgz-hideb");
+        var len=hfBox.length;
+         for(var i=0; i<len; i++){
+            hfBox[i].index=i;
+            hfBox[i].setAttribute('onclick', 'show_hide(this.index)');
+         };
+         function show_hide(i){
+           var e=event||window.event;
+           var object=box[i];
+           if(object.style.display=="none"){
+              object.style.display="block";
+              e.target.innerHTML="收起回复";
+              e.target.style.color="#339999"
+           }else{
+             object.style.display="none";
+             e.target.innerHTML="回复";
+             e.target.style.color="orange"
+           }
+         }
 
  
