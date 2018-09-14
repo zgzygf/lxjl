@@ -1,0 +1,20 @@
+/底部导航控制加载高度变化js
+window.onresize=function(){
+	 	changHeight()
+	 }
+	window.onload=function(){
+		changHeight()
+	}
+	function changHeight(){
+		var content=document.querySelector(".content");
+	 	var footer=document.querySelector("footer");
+		var winHeight = document.documentElement.clientHeight; //默认网页窗口大小
+		var con_h=content.offsetHeight; //内容区域高度
+		var top_h=con_h+250;//所有内容高度（顶部导航等）
+		var minH=winHeight-top_h;
+		if(minH<=174){ //174一般是网页底部导航高度
+			footer.style.top=top_h+"px";
+		}else{
+			footer.style.top=(winHeight-174)+"px"
+		}
+	}
