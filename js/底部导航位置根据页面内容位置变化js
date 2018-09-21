@@ -18,3 +18,27 @@ window.onresize=function(){
 			footer.style.top=(winHeight-174)+"px"
 		}
 	}
+	
+	  //控制文字显示数量
+		$("#box").each(function(){
+			var len=$(this).text().length;
+			if(len>23){
+				var str="";
+				str=$(this).text().substring(0,23)+"....";
+				$(this).html(str)
+			}
+		})
+		//原生js控制文字显示数量
+		var box=document.getElementById("box1");
+		var oldText=box.innerHTML;
+		var len=oldText.length;
+		if(len>20){
+			var newText=oldText.substr(0,19)+"...";
+			box.innerHTML=newText
+
+		}
+		//原生操作类名
+		<div id="box" class="on"></div>
+		alert(document.querySelector("#box").classList)//得到类名on，也可以add()或remove()来操作
+		document.querySelector("#box").classList.add("active");
+		alert(document.querySelector("#box").classList)// on active
