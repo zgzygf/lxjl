@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo water-basic</title>
+	<style type="text/css">
+		.water-basic {
+			position: relative;
+		}
+		.item {
+			position: absolute;
+			width: 300px;
+			margin: 5px;
+			transition: all 1s;
+		}
+		.item img{
+			width: 100%;
+			height: 100%;
+		}
+		.box1 {
+			height: 300px;
+			background-color: red;
+		}
+		.box2 {
+			height: 240px;
+			background-color: blue;
+		}
+		.box3 {
+			height: 200px;
+			background-color: gray;
+		}
+		.box4 {
+			height: 100px;
+			background-color: pink;
+		}
+		.box5 {
+			height: 150px;
+			background-color: yellow;
+		}
+	</style>
+	<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div class="water-basic">
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/0.jpg" >
+		</a>
+	</div>
+	<div class="item box2">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/1.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/2.jpg" >
+		</a>
+	</div>
+	<div class="item box4">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-07.jpg" >
+		</a>
+	</div>
+	<div class="item box5">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/4.jpg" >
+		</a>
+	</div>
+	<div class="item box3">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-07.jpg" >
+		</a>
+	</div>
+	<div class="item box2">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/2.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/4.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-07.jpg" >
+		</a>
+	</div>
+	<div class="item box2">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-10-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box4">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-07.jpg" >
+		</a>
+	</div>
+	<div class="item box3">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-04-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-03-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box5">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-01-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box2">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/bg-body.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-07.jpg" >
+		</a>
+	</div>
+	<div class="item box3">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/4.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/1.jpg" >
+		</a>
+	</div>
+	<div class="item box2">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/3.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-03-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box4">
+	    <a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/3.jpg" >
+		</a>
+	</div>
+	<div class="item box5">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/4.jpg" >
+		</a>
+	</div>
+	<div class="item box3">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/5.jpg" >
+		</a>
+	</div>
+	<div class="item box2">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/2.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-07.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/3.jpg" >
+		</a>
+	</div>
+	<div class="item box2">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/1.jpg" >
+		</a>
+	</div>
+	<div class="item box4">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/2.jpg" >
+		</a>
+	</div>
+	<div class="item box3">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/4.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-03-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box5">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-01-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box2">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-04-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box1">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/gallery-10-thumb.jpg" >
+		</a>
+	</div>
+	<div class="item box3">
+		<a href="javascript:;">
+			<img src="" lazyload="true" data-original="img/4.jpg" >
+		</a>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var waterBasic = (function(){
+		function init(){
+			var nodeWidth = $(".item").outerWidth(true),
+				colNum = parseInt( $(window).width() / nodeWidth ),
+				colSumHeight = [];
+			for (var i=0;i<colNum;i++) {
+				colSumHeight.push(0);
+			}
+			$(".item").each(function(){
+				var $cur = $(this),
+					idx = 0,
+					minSumHeight = colSumHeight[0];
+				// 获取到solSumHeight中的最小高度
+				for (var i=0;i<colSumHeight.length;i++) {
+					if (minSumHeight > colSumHeight[i]) {
+						minSumHeight = colSumHeight[i];
+						idx = i;
+					}
+				}
+				// 设置各个item的css属性
+				$cur.css({
+					left: nodeWidth*idx,
+					top: minSumHeight
+				})
+				// 更新solSumHeight
+				colSumHeight[idx] = colSumHeight[idx] + $cur.outerHeight(true);
+			})
+		}
+		// 设置窗口改变时也能重新加载
+		$(window).on("resize", function(){
+			init();
+		})
+		return {
+			init: init
+		}
+	})();
+	waterBasic.init();
+	//图片预加载
+	var viewHeight = document.documentElement.clientHeight // 可视区域的高度
+		function lazyload () {
+		  // 获取所有要进行预加载的图片
+		  var eles = document.querySelectorAll('img[data-original][lazyload]')
+		  Array.prototype.forEach.call(eles, function (item, index) {
+		    var rect
+		    if (item.dataset.original === '')
+		      return
+		    rect = item.getBoundingClientRect()
+		    // 图片一进入可视区，动态加载
+		    if (rect.bottom >= 0 && rect.top < viewHeight) {
+		      !function () {
+		        var img = new Image()
+		        img.src = item.dataset.original
+		        img.onload = function () {
+		          item.src = img.src
+		        }
+		        item.removeAttribute('data-original')
+		        item.removeAttribute('lazyload')
+		      }()
+		    }
+		  })
+		}
+		// 首屏要人为的调用，否则刚进入页面不显示图片
+		lazyload()
+
+		document.addEventListener('scroll', lazyload)
+</script>
+</body>
+</html>
