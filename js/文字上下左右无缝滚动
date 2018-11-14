@@ -1,0 +1,44 @@
+//文字向上滚动
+		// $(function(){
+		$(function(){
+			var num=0;
+			function goTop(){
+				if(num==-400){
+					num=0;
+				}
+				num-=1;
+				$('.scroll').css({
+				   top:num
+				})
+			}
+			
+			var timer = setInterval(goTop,20);
+			$('.box').hover(function(){
+				clearInterval(timer);
+			},
+			function(){
+				timer = setInterval(goTop,20)
+			}
+			)
+		})
+		//原生js实现向上滚动
+		(function(){
+			var num=0;
+			var scroll = document.querySelector('.scroll');
+			var box = document.querySelector('.box');
+			function goTop(){
+				if(num==-400){
+					num=0;
+				}
+				num-=1;
+				scroll.style.top=num+'px';
+
+			}
+			var timer = setInterval(goTop,30);
+			box.onmouseover=function(){
+				clearInterval(timer)
+			}
+			box.onmouseout = function(){
+				timer = setInterval(goTop,30)
+			}
+		})()
