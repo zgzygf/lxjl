@@ -1,0 +1,5 @@
+1：在本地配置ssh,吧配置的本地文件复制，然后再github上粘贴（setings）
+2: 分支开发好之后，建立远程分支联系  git push --set-upstream origin zgz(远程分支名)
+3：添加，提交后  
+4：git branch --set-upstream-to origin/zgz  //设置分支从原点跟踪远程分支
+5：git push //推送内容
